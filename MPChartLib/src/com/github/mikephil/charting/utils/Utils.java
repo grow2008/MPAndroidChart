@@ -3,20 +3,6 @@ package com.github.mikephil.charting.utils;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Paint;
-import android.graphics.PointF;
-import android.graphics.Rect;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.MotionEvent;
-import android.view.VelocityTracker;
-import android.view.View;
-import android.view.ViewConfiguration;
-
-import com.github.mikephil.charting.components.YAxis.AxisDependency;
-
 import java.text.DecimalFormat;
 import java.util.List;
 
@@ -302,7 +288,7 @@ public abstract class Utils {
 
             // add decimal point
             if (charCount == digitCount) {
-                out[ind--] = ',';
+                out[ind--] = '.';
                 charCount++;
                 decimalPointAdded = true;
 
@@ -312,14 +298,14 @@ public abstract class Utils {
                 if (decimalPointAdded) {
 
                     if ((charCount - digitCount) % 4 == 0) {
-                        out[ind--] = '.';
+                        out[ind--] = ',';
                         charCount++;
                     }
 
                 } else {
 
                     if ((charCount - digitCount) % 4 == 3) {
-                        out[ind--] = '.';
+                        out[ind--] = ',';
                         charCount++;
                     }
                 }
